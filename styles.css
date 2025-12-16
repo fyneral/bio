@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    background-image: url(/bliss.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+@media only screen and (orientation: portrait) {
+    body {
+        background-image: url(/bliss-mobile.jpg);
+    }
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #245ddb, #1b3f8b);
+    border-top: 2px solid #4f7df5;
+    color: white;
+    z-index: 9999;
+}
+
+.start {
+    height: 100%;
+    padding: 0 16px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: linear-gradient(to bottom, #3fc34d, #1d8f2f);
+    border-right: 2px solid #0f5f1e;
+    box-shadow: inset -1px 0 0 #6ee07c;
+}
+
+.start img {
+    height: 25px;
+    image-rendering: pixelated;
+}
+
+.start span {
+    font-weight: bold;
+    font-style: italic;
+    text-transform: lowercase;
+    text-shadow: 1px 1px 0 #0b3d12;
+    font-size: 20px;
+}
+
+.tasks {
+    display: flex;
+    gap: 6px;
+    padding-left: 8px;
+    flex-grow: 1;
+}
+
+.task {
+    min-width: 120px;
+    height: 28px;
+    background: linear-gradient(to bottom, #5a8df7, #2c58c9);
+    border: 1px solid #1b3f8b;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.task.active {
+    background: linear-gradient(to bottom, #c7d7ff, #7aa2ff);
+    color: black;
+}
+
+.window,
+.window * {
+    box-sizing: border-box;
+}
+
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40vw;
+    height: 60vh;
+    max-width: 1300px;
+    max-height: 768px;
+    transform: translate(-50%, -50%);
+    background: #ece9d8;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    border: 1px solid #000;
+    box-shadow:
+        0 0 0 1px #7f9db9,
+        0 0 0 2px #ffffff,
+        0 0 0 3px #7f9db9,
+        5px 5px 0 rgba(0, 0, 0, 0.45);
+}
+
+.titlebar {
+    height: 34px;
+    flex: 0 0 auto;
+    background: linear-gradient(to bottom, #4a79e0 0%, #2f65db 40%, #245ddb 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px 0 8px;
+    user-select: none;
+    border-bottom: 1px solid #102a83;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.buttons {
+    display: flex;
+    gap: 3px;
+}
+
+.btn {
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(to bottom, #ffffff, #d6d6d6);
+    border: 1px solid #404040;
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+    font-size: 12px;
+    line-height: 19px;
+    text-align: center;
+    color: black;
+}
+
+.btn:active {
+    box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #808080;
+}
+
+.btn.close {
+    background: linear-gradient(to bottom, #ff8a8a, #c80000);
+    border-color: #5a0000;
+    color: white;
+    font-weight: bold;
+}
+
+.window-body {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    background: #ece9d8;
+    border-top: 1px solid #7f9db9;
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #7f9db9;
+    padding: 2px;
+}
+
+.window-body iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #808080;
+    background: white;
+}
